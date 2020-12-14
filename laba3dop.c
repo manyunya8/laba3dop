@@ -13,7 +13,7 @@ float exp(float x)
 	float a = 1.0;
 	float s = 1.0;
 	float n = 1.0;
-	while (a > eps) 
+	while (fabs(a) > eps) 
 	{
 		a *= x / n;
 		s += a;
