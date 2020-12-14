@@ -1,4 +1,3 @@
-#include <stdio.h>
 float const eps = 0.0000001;
 
 float fabs(float x)
@@ -49,7 +48,7 @@ float ln(float x)
 		float a = 1 / (2 * x + 1);
 		float k = 1.0;
 		float p = 0.0;
-		while (fabs(2 * a / k) > eps)
+		while (2 * a / k > eps)
 		{
 			s += 2 * a / k;
 			k += 2;
@@ -65,17 +64,6 @@ float pow(float x, float n) {
 	return exp(n * ln(x));
 }
 
-int inArr(float* a, int size)
-{
-	printf("Enter %d natural numbers: \n", size);
-	for (int i = 0; i < size; i++, a++)
-	{
-		if (scanf("%f", a) != 1)
-			return 1;
-	}
-	return 0;
-}
-
 float geom(float* a, int size)
 {
 	float p = 1.0;
@@ -84,7 +72,5 @@ float geom(float* a, int size)
 	{
 		p *= *a;
 	}
-	if (p <= 0)
-		return -1;
 	return pow(p, 1.0 / n);
 }

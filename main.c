@@ -1,14 +1,21 @@
 #include "laba3dop.h"
-#define SIZE 2
+#include <stdio.h>
+#define SIZE 3
 
 int main()
 {
 	float arr[SIZE];
-	if (inArr(arr, SIZE) == 1)
-		return printf("Not a number!\n");
-	float res = geom(arr, SIZE);
-	if (res == -1)
-		return printf("Only natural numbers!\n");
-	printf("The geometric mean:\n%.3f", res);
+	float* a = arr;
+	printf("Enter %d numbers greater than zero: \n", SIZE);
+	for (int i = 0; i < SIZE; i++, a++)
+	{
+		if (scanf("%f", a) != 1)
+			return printf("Not a number!\n");
+		if (*a < 0)
+			return printf("Negative number!\n");
+		if (*a == 0)
+			return printf("Zero!\n");
+	}
+	printf("The geometric mean:\n%.3f", geom(arr, SIZE));
 	return 0;
 }
