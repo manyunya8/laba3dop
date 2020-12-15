@@ -71,6 +71,8 @@ float geom(float* a, int size)
 	for (int i = 0; i < size; i++, a++, n++)
 	{
 		p *= *a;
+		if (*a <= 0)
+			return -1;
 	}
 	return pow(p, 1.0 / n);
 }
